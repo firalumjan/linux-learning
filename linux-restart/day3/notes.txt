@@ -1,0 +1,5 @@
+Linux is an operating system.
+Ubuntu is a Linux distribution.
+The terminal is used to run commands.
+Bash is a shell.
+Linux is powerful.
