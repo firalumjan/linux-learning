@@ -1,8 +1,21 @@
 # File Permissions
 
-## What are File Permissions?
+## Learning Objectives
 
-File permissions determine who can read, write, or execute a file or directory.
+By the end of this lesson, you will be able to:
+
+- Understand Linux file permissions.
+- Explain the difference between Owner, Group, and Others.
+- Read permission strings such as `-rwxr-xr--`.
+- Convert symbolic permissions to numeric permissions.
+- Change file permissions using `chmod`.
+- Change file ownership using `chown` and `chgrp`.
+
+---
+
+# What are File Permissions?
+
+File permissions determine **who can read, write, or execute** a file or directory.
 
 Every file and directory has permissions assigned to:
 
@@ -12,7 +25,7 @@ Every file and directory has permissions assigned to:
 
 ---
 
-## Viewing Permissions
+# Viewing Permissions
 
 Use:
 
@@ -20,7 +33,7 @@ Use:
 ls -l
 ```
 
-Example output:
+Example:
 
 ```text
 -rwxr-xr-- 1 najmul-arif najmul-arif 120 Jul 26 10:00 script.sh
@@ -28,7 +41,7 @@ Example output:
 
 ---
 
-### Permission Layout
+# Understanding the Permission String
 
 ```text
 -rwxr-xr--
@@ -42,17 +55,17 @@ Example output:
 
 ---
 
-## File Types
+# File Types
 
 | Symbol | Meaning | Example |
 |---------|---------|---------|
-| - | Regular file | notes.txt |
-| d | Directory | Documents/ |
-| l | Symbolic link | shortcut -> file.txt |
+| `-` | Regular file | notes.txt |
+| `d` | Directory | Documents/ |
+| `l` | Symbolic link | shortcut -> file.txt |
 
 ---
 
-## Permission Types
+# Permission Types
 
 | Symbol | Meaning |
 |---------|---------|
@@ -62,69 +75,73 @@ Example output:
 
 ---
 
-## What Each Permission Means
+# What Each Permission Means
 
-### For Files
+## For Files
 
-Read (r)
-- View file contents.
+### Read (r)
 
-Write (w)
-- Modify the file.
+View the file contents.
 
-Execute (x)
-- Run the file as a program or script.
+### Write (w)
 
-### For Directories
+Modify the file.
 
-Read
-- List files inside the directory.
+### Execute (x)
 
-Write
-- Create, rename, or delete files in the directory.
-
-Execute
-- Enter the directory using `cd`.
+Run the file as a program or script.
 
 ---
 
-## Numeric Permissions
+## For Directories
 
-| Number | Permission |
-|---------|------------|
-| 7 | rwx |
-| 6 | rw- |
-| 5 | r-x |
-| 4 | r-- |
-| 3 | -wx |
-| 2 | -w- |
-| 1 | --x |
-| 0 | --- |
+### Read
 
-### Common Permission Examples
+List files inside the directory.
 
-| Numeric | Owner | Group | Others | Meaning |
-|---------|-------|-------|--------|---------|
-| 644 | rw- | r-- | r-- | Regular text files |
-| 755 | rwx | r-x | r-x | Scripts and directories |
-| 600 | rw- | --- | --- | Private files |
-| 777 | rwx | rwx | rwx | Full access (not recommended) |
+### Write
+
+Create, rename, or delete files inside the directory.
+
+### Execute
+
+Enter the directory using:
+
+```bash
+cd directory_name
+```
 
 ---
 
-## Memory Trick for Numeric Permissions
+# Memory Trick
 
-Each permission has a numeric value:
+Remember:
+
+```text
+r = Read
+w = Write
+x = Execute
+```
+
+Think of a notebook:
+
+- Read → Open and read it.
+- Write → Edit it.
+- Execute → Use it like an application.
+
+---
+
+# Numeric Permissions
+
+Each permission has a numeric value.
 
 | Permission | Value |
 |------------|------:|
-| Read (r) | 4 |
-| Write (w) | 2 |
-| Execute (x) | 1 |
+| Read | 4 |
+| Write | 2 |
+| Execute | 1 |
 
-Add the values together to get the permission number.
-
-Examples:
+Add the values together.
 
 | Number | Permission | Calculation |
 |--------:|------------|-------------|
@@ -137,40 +154,49 @@ Examples:
 | 1 | --x | 1 |
 | 0 | --- | 0 |
 
-### Easy Memory Table
+---
 
-| Number | Meaning | Common Use |
-|--------:|---------|------------|
-| 755 | Owner: rwx, Group: r-x, Others: r-x | Executable scripts and directories |
-| 644 | Owner: rw-, Group: r--, Others: r-- | Regular text files |
-| 600 | Owner: rw-, Group: ---, Others: --- | Private files (SSH keys, passwords) |
-| 777 | Owner: rwx, Group: rwx, Others: rwx | Full access (avoid in production) |
+# Common Permission Examples
 
-### Quick Tip
+| Numeric | Owner | Group | Others | Common Use |
+|---------:|-------|-------|--------|------------|
+| 755 | rwx | r-x | r-x | Scripts and directories |
+| 644 | rw- | r-- | r-- | Text files |
+| 600 | rw- | --- | --- | Private files |
+| 700 | rwx | --- | --- | Private executable scripts |
+| 640 | rw- | r-- | --- | Shared within a group |
+| 711 | rwx | --x | --x | Directories requiring traversal only |
+| 777 | rwx | rwx | rwx | Full access (avoid in production) |
 
-Think of the numbers as simple addition:
+---
+
+# Memory Trick for Numeric Permissions
 
 ```text
-r = 4
-w = 2
-x = 1
-
-rwx = 4 + 2 + 1 = 7
-rw- = 4 + 2 = 6
-r-x = 4 + 1 = 5
-r-- = 4 = 4
+Read    = 4
+Write   = 2
+Execute = 1
 ```
 
-If you can remember **4 = Read**, **2 = Write**, and **1 = Execute**, you can calculate any Linux permission without memorizing every combination.
+Examples:
 
-> **⚠️ Warning**
->
-> Avoid using `chmod 777` unless absolutely necessary.
-> It gives read, write, and execute permissions to everyone, which can create serious security risks.
+```text
+rwx = 4+2+1 = 7
 
-## chmod
+rw- = 4+2 = 6
 
-Add execute permission:
+r-x = 4+1 = 5
+
+r-- = 4
+```
+
+If you remember **4**, **2**, and **1**, you can calculate any permission.
+
+---
+
+# chmod
+
+Grant execute permission:
 
 ```bash
 chmod +x script.sh
@@ -186,31 +212,33 @@ Numeric examples:
 
 ```bash
 chmod 755 script.sh
+
 chmod 644 notes.txt
+
 chmod 600 secret.txt
 ```
 
 ---
 
-## chown
+# chown
 
-Change owner:
+Change file owner.
 
 ```bash
 sudo chown username file.txt
 ```
 
-Change owner and group:
+Owner and group together:
 
 ```bash
-sudo chown username:group file.txt
+sudo chown username:developers file.txt
 ```
 
 ---
 
-## chgrp
+# chgrp
 
-Change group:
+Change only the group.
 
 ```bash
 sudo chgrp developers file.txt
@@ -218,25 +246,198 @@ sudo chgrp developers file.txt
 
 ---
 
-## Check Current User
+# Check Current User
 
 ```bash
 whoami
+
 id
+
 groups
 ```
 
 ---
 
-## Summary
+# Practice Lab
+
+Create files:
+
+```bash
+mkdir permissions
+
+cd permissions
+
+touch file644 file755 file600
+```
+
+Assign permissions:
+
+```bash
+chmod 644 file644
+
+chmod 755 file755
+
+chmod 600 file600
+```
+
+Verify:
+
+```bash
+ls -l
+```
+
+Expected output:
+
+```text
+-rw-r--r-- file644
+
+-rwxr-xr-x file755
+
+-rw------- file600
+```
+
+Try removing execute permission:
+
+```bash
+chmod -x file755
+
+ls -l
+```
+
+Add it back:
+
+```bash
+chmod +x file755
+
+ls -l
+```
+
+---
+
+# Command Cheat Sheet
+
+| Command | Purpose |
+|----------|---------|
+| ls -l | View permissions |
+| chmod +x | Add execute permission |
+| chmod -x | Remove execute permission |
+| chmod 755 | Set rwxr-xr-x |
+| chmod 644 | Set rw-r--r-- |
+| chmod 600 | Set rw------- |
+| chown | Change owner |
+| chgrp | Change group |
+| whoami | Current user |
+| id | User ID and groups |
+| groups | Show user groups |
+
+---
+
+# Interview Questions
+
+### What are Linux file permissions?
+
+They determine who can read, write, or execute a file or directory.
+
+---
+
+### What are the three permission categories?
+
+- Owner
+- Group
+- Others
+
+---
+
+### What does `chmod 755 file.sh` do?
+
+Sets permissions to:
+
+```text
+Owner : rwx
+
+Group : r-x
+
+Others: r-x
+```
+
+---
+
+### What does `chmod +x script.sh` do?
+
+Adds execute permission to the file.
+
+---
+
+### Which command changes a file's owner?
+
+```bash
+chown
+```
+
+---
+
+### Which command changes a file's group?
+
+```bash
+chgrp
+```
+
+---
+
+### What does the first character `d` mean in `drwxr-xr-x`?
+
+It indicates that the item is a **directory**.
+
+---
+
+### What does permission `600` mean?
+
+```text
+Owner : Read + Write
+
+Group : No permission
+
+Others: No permission
+```
+
+---
+
+### Why is `chmod 777` discouraged?
+
+It gives everyone full read, write, and execute access, creating a serious security risk.
+
+---
+
+# Best Practices
+
+- Use **644** for regular files.
+- Use **755** for executable scripts and directories.
+- Use **600** for sensitive files like SSH keys.
+- Avoid **777** unless absolutely necessary.
+- Follow the principle of least privilege by granting only the permissions that are required.
+
+---
+
+# Key Takeaways
+
+- Linux permissions are divided into **Owner**, **Group**, and **Others**.
+- Every permission consists of **Read**, **Write**, and **Execute**.
+- `ls -l` displays permissions.
+- `chmod` changes permissions.
+- `chown` changes ownership.
+- `chgrp` changes the group.
+- Numeric permissions are calculated using **4 (Read) + 2 (Write) + 1 (Execute)**.
+- Common permissions to remember are **755**, **644**, and **600**.
+
+---
+
+# Summary
 
 After completing this lesson, you should be able to:
 
-- Explain Owner, Group, and Others.
-- Understand Read, Write, and Execute permissions.
-- Read permission strings such as `-rwxr-xr--`.
+- Explain Linux file permissions.
+- Interpret permission strings.
 - Convert between symbolic and numeric permissions.
-- Use `chmod` to change permissions.
-- Use `chown` to change file ownership.
-- Use `chgrp` to change a file's group.
-- Identify common permission values such as `644`, `755`, and `600`.
+- Use `chmod`, `chown`, and `chgrp`.
+- Apply common permission values correctly.
+- Follow secure permission management practices.
