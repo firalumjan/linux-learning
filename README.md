@@ -8,87 +8,156 @@
 
 ---
 
-## 📖 About This Repository
+# 🐧 Linux Learning Journey
 
-This repository documents my Linux learning journey as I build practical system administration and command-line skills.
+Welcome to my Linux learning repository!
 
-The goal is to develop hands-on experience with:
+This repository documents my journey of learning **Linux System Administration**, **Bash scripting**, and **Git/GitHub** through daily hands-on practice.
 
-- Linux command line
-- Ubuntu administration
-- Bash scripting
-- Git & GitHub
-- File permissions
-- Package management
-- User management
-- Networking
-- Shell scripting
-- System troubleshooting
+Every topic includes:
+
+- 📚 Theory
+- 💻 Practical exercises
+- 🔧 Command explanations
+- 📝 Personal notes
+- 🚀 Git version history
 
 ---
 
-## 🖥️ System Information
+# 📖 About This Repository
+
+The goal of this repository is to build practical Linux administration skills by learning and practicing topics such as:
+
+- Linux Command Line
+- Ubuntu Administration
+- Bash Scripting
+- Git & GitHub
+- File Permissions
+- Users & Groups
+- Package Management
+- Networking
+- Process Management
+- SSH
+- Automation
+- System Troubleshooting
+
+This repository serves as both my personal learning notebook and a portfolio showcasing my Linux skills.
+
+---
+
+# 🖥️ System Information
 
 | Component | Details |
 |-----------|---------|
-| OS | Ubuntu 26.04 LTS |
+| Operating System | Ubuntu 26.04 LTS |
 | Shell | Bash |
 | Terminal | GNOME Terminal |
 | Laptop | Dell Inspiron 3443 |
+| Version Control | Git |
+| Repository | GitHub |
 
 ---
 
 # 📂 Repository Structure
 
-```
+```text
 linux-learning/
+│
+├── README.md
+│
+├── notes/
+│   ├── 01-linux-basics.md
+│   ├── 02-files-and-directories.md
+│   └── 03-file-permissions.md
+│
+├── practice/
+│
+├── permissions/
+│
+├── day3-lab/
 │
 ├── linux-restart/
 │   ├── day1/
 │   ├── day2/
 │   ├── day3/
-│   └── ...
+│   ├── ...
 │
-├── scripts/
-│   ├── update.sh
-│   ├── userinfo.sh
-│   └── voting.sh
-│
-├── notes/
-│
-├── screenshots/
-│
-└── README.md
+└── scripts/
+    ├── update.sh
+    ├── userinfo.sh
+    └── voting.sh
 ```
 
 ---
 
-# 📚 Topics Covered
+# 📚 Learning Progress
 
-- Linux File System
-- Files and Directories
-- Terminal Commands
-- Users and Groups
-- File Permissions
-- Ownership
-- Package Management (APT)
-- Process Management
-- Networking Basics
-- SSH
-- Git
-- GitHub
-- Bash Scripting
-- Conditional Statements
-- Loops
-- Variables
-- Functions
-- Shell Scripts
+| Day | Topic | Status |
+|------|----------------------------|:------:|
+| Day 1 | Linux Basics | ✅ |
+| Day 2 | Files & Directories | ✅ |
+| Day 3 | File Permissions | ✅ |
+| Day 4 | Users & Groups | 🚧 |
+| Day 5 | Package Management | ⏳ |
+| Day 6 | Process Management | ⏳ |
+| Day 7 | Networking | ⏳ |
+| Day 8 | Shell Scripting | ⏳ |
+| Day 9 | Cron Jobs | ⏳ |
+| Day 10 | Git & GitHub (Advanced) | ⏳ |
+
+### Legend
+
+- ✅ Completed
+- 🚧 In Progress
+- ⏳ Planned
+
+---
+
+# 🛠️ Skills Learned
+
+## Linux Commands
+
+- pwd
+- ls
+- cd
+- mkdir
+- touch
+- cp
+- mv
+- rm
+- find
+- tree
+
+---
+
+## File Permissions
+
+- chmod
+- chown
+- chgrp
+- Read (r)
+- Write (w)
+- Execute (x)
+- Numeric Permissions
+  - 755
+  - 644
+  - 600
+
+---
+
+## Git & GitHub
+
+- git clone
+- git status
+- git add
+- git commit
+- git push
 
 ---
 
 # 💻 Bash Scripts
 
-This repository includes practice scripts such as:
+This repository includes practice Bash scripts such as:
 
 - update.sh
 - userinfo.sh
@@ -98,43 +167,75 @@ More scripts will be added as I continue learning.
 
 ---
 
+# 🧪 Practical Labs
+
+Each topic includes hands-on practice.
+
+Completed labs include:
+
+- Linux command practice
+- File creation and management
+- Directory navigation
+- Copying and moving files
+- Searching files with `find`
+- Linux permissions
+- chmod practice
+- Permission-based labs
+
+More labs will be added as I progress.
+
+---
+
 # 🎯 Learning Goals
 
 - Master Linux command line
-- Learn Linux system administration
-- Build automation with Bash
+- Learn Linux System Administration
+- Build automation using Bash
+- Understand Linux security and permissions
+- Learn package management
+- Learn networking fundamentals
 - Manage Git repositories efficiently
-- Prepare for Linux System Administrator roles
-- Strengthen DevOps fundamentals
+- Build a strong Linux portfolio
+- Prepare for Linux System Administrator and Technical Support roles
 
 ---
 
-# 📈 Progress
+# 🚀 Overall Progress
 
-| Module | Status |
-|---------|--------|
-| Linux Basics | ✅ |
-| File System | ✅ |
-| Commands | ✅ |
-| Permissions | ✅ |
-| Users & Groups | ✅ |
-| Bash Scripting | ✅ |
-| Git | ✅ |
-| GitHub | ✅ |
-| Networking | 🚧 |
-| Process Management | 🚧 |
-| Cron Jobs | ⏳ |
-| System Administration | ⏳ |
+```text
+Linux Learning Progress
 
-Legend:
+█████████░░░░░░░░░░░░░░░░░░░░ 30%
 
-- ✅ Completed
-- 🚧 In Progress
-- ⏳ Planned
+Completed
+
+✔ Linux Basics
+✔ Files & Directories
+✔ File Permissions
+
+Next
+
+➜ Users & Groups
+```
 
 ---
 
-# 🚀 How to Clone
+# 📚 Learning Philosophy
+
+Every topic in this repository contains:
+
+- Theory
+- Linux commands
+- Practical exercises
+- Interview questions
+- Personal notes
+- Git commit history
+
+The goal is not only to understand Linux but to build real hands-on experience through consistent practice.
+
+---
+
+# 🚀 Clone This Repository
 
 ```bash
 git clone git@github.com:firalumjan/linux-learning.git
@@ -144,10 +245,14 @@ git clone git@github.com:firalumjan/linux-learning.git
 
 # 📬 Connect With Me
 
-- GitHub: https://github.com/firalumjan
+- **GitHub:** https://github.com/firalumjan
 
 ---
 
-## ⭐ Thank You
+# ⭐ Support
 
-If you find this repository useful or inspiring, feel free to ⭐ star it.
+If you find this repository useful or inspiring, feel free to give it a ⭐ on GitHub.
+
+---
+
+> **Learning Linux one command at a time. Every command practiced, documented, and version controlled with Git.**
