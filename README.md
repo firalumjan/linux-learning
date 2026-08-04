@@ -10,11 +10,11 @@
 
 # 📖 About This Repository
 
-Welcome to my Linux Learning Journey!
+Welcome to my **Linux Learning Journey**!
 
 This repository documents my hands-on learning experience with Linux system administration, Bash scripting, and command-line tools. Every lesson includes detailed notes, practical labs, and Git version control to reinforce real-world Linux skills.
 
-The objective is to build a strong foundation for Linux System Administration, DevOps, Cloud Computing, and technical support roles.
+The objective is to build a strong foundation for **Linux System Administration, DevOps, Cloud Computing, and Technical Support** roles.
 
 ---
 
@@ -25,6 +25,7 @@ The objective is to build a strong foundation for Linux System Administration, D
 - Learn Linux system administration
 - Write Bash scripts
 - Manage users and permissions
+- Manage Linux processes
 - Automate repetitive tasks
 - Use Git and GitHub professionally
 - Prepare for Linux Administrator and DevOps roles
@@ -52,18 +53,15 @@ linux-learning/
 │   ├── 01-linux-basics.md
 │   ├── 02-files-and-directories.md
 │   ├── 03-file-permissions.md
-│   └── 04-users-and-groups.md
+│   ├── 04-users-and-groups.md
+│   └── 05-process-management.md
 │
-├── day3-lab/
-│
-├── day4-lab/
-│
-├── linux-restart/
-│
-├── permissions/
+├── labs/
+│   ├── day3/
+│   ├── day4/
+│   └── day5/
 │
 ├── README.md
-│
 └── .gitignore
 ```
 
@@ -130,6 +128,23 @@ linux-learning/
 
 ---
 
+## ✅ Day 5 – Process Management
+
+- What is a Process?
+- Program vs Process
+- PID and PPID
+- Viewing Processes (`ps`)
+- Live Process Monitoring (`top` and `htop`)
+- Background and Foreground Jobs
+- Process Signals
+- kill and kill -9
+- Ctrl + C and Ctrl + Z
+- bg and fg
+- Process Priority (`nice`)
+- Practical Process Management Lab
+
+---
+
 # 💻 Practical Labs
 
 Completed hands-on exercises include:
@@ -138,8 +153,11 @@ Completed hands-on exercises include:
 - Files and Directories Lab
 - File Permissions Lab
 - Users and Groups Lab
+- Process Management Lab
 - User Creation and Deletion
 - Permission Management
+- Background and Foreground Jobs
+- Process Monitoring
 - Directory Navigation
 - File Operations
 
@@ -155,8 +173,8 @@ More labs will be added as the learning journey continues.
 | Files & Directories | ✅ Completed |
 | File Permissions | ✅ Completed |
 | Users & Groups | ✅ Completed |
+| Process Management | ✅ Completed |
 | Package Management (APT) | 🚧 Next |
-| Process Management | ⏳ Planned |
 | Shell Scripting | ⏳ Planned |
 | Networking Basics | ⏳ Planned |
 | Cron Jobs | ⏳ Planned |
@@ -166,7 +184,7 @@ More labs will be added as the learning journey continues.
 | Bash Automation | ⏳ Planned |
 | Linux Administration | ⏳ Planned |
 
-Legend:
+**Legend**
 
 - ✅ Completed
 - 🚧 Currently Learning
@@ -176,7 +194,9 @@ Legend:
 
 # 🛠 Skills Learned
 
-### Linux Commands
+## Linux Commands
+
+### Navigation & Files
 
 - pwd
 - ls
@@ -188,43 +208,55 @@ Legend:
 - mv
 - rm
 - find
+
+### Permissions
+
 - chmod
 - chown
 - chgrp
+
+### Users & Groups
+
 - whoami
 - id
 - groups
 - who
 - w
 - logname
-- grep
+
+### Text Processing
+
 - cat
 - head
+- grep
+
+### Process Management
+
+- ps
+- ps -ef
+- ps aux
+- top
+- htop
+- jobs
+- kill
+- kill -9
+- bg
+- fg
+- nice
+- echo $$
+- echo $PPID
 
 ---
 
-### Git
+## Git
 
 - git init
 - git status
 - git add
 - git commit
 - git push
+- git pull
 - git log
-
----
-
-# 🚀 How to Clone
-
-```bash
-git clone git@github.com:firalumjan/linux-learning.git
-```
-
-Or using HTTPS:
-
-```bash
-git clone https://github.com/firalumjan/linux-learning.git
-```
 
 ---
 
@@ -234,7 +266,9 @@ git clone https://github.com/firalumjan/linux-learning.git
 - 💻 Hands-on Linux Labs
 - 🔐 Linux Security & Permissions
 - 👤 User and Group Management
-- 🌳 Well-structured Git History
+- ⚙️ Linux Process Management
+- 📊 Process Monitoring with `ps`, `top`, and `htop`
+- 🌳 Professional Git History
 - 📚 Beginner-friendly Documentation
 
 ---
@@ -247,7 +281,24 @@ git clone https://github.com/firalumjan/linux-learning.git
 | Day 2 | Files and Directories | ✅ |
 | Day 3 | File Permissions | ✅ |
 | Day 4 | Users and Groups | ✅ |
-| Day 5 | Package Management | 🚧 |
+| Day 5 | Process Management | ✅ |
+| Day 6 | Package Management (APT) | 🚧 |
+
+---
+
+# 🚀 Clone This Repository
+
+### SSH
+
+```bash
+git clone git@github.com:firalumjan/linux-learning.git
+```
+
+### HTTPS
+
+```bash
+git clone https://github.com/firalumjan/linux-learning.git
+```
 
 ---
 
@@ -259,6 +310,6 @@ git clone https://github.com/firalumjan/linux-learning.git
 
 # ⭐ Support
 
-If you find this repository useful, consider giving it a ⭐ on GitHub.
+If you found this repository useful, consider giving it a ⭐ on GitHub.
 
 Feedback and suggestions are always welcome!
